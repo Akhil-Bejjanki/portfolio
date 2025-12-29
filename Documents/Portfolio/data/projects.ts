@@ -13,14 +13,14 @@ export const projects: Project[] = [
         featured: true,
     },
     {
-        id: "2",
+        id: "4",
         title: "Music Video",
         description: "Music Video",
         category: "Video Production",
         image: "/placeholder-video.jpg", // Replace with real image
         tech: ["Adobe Premiere"],
         liveUrl: "https://youtube.com",
-        featured: true,
+        featured: false,
     },
     {
         id: "3",
@@ -30,15 +30,15 @@ export const projects: Project[] = [
         image: "/placeholder-portfolio.jpg", // Replace with real image
         tech: ["RaspberryPi", "Ultrasonic Sensor"],
         codeUrl: "https://github.com/example/portfolio",
-        featured: false,
+        featured: true,
     },
     {
-        id: "4",
+        id: "2",
         title: "Smart Path AI",
         description: "AI learning tool",
         category: "Engineering",
         image: "/placeholder-iot.jpg", // Replace with real image
-        tech: ["React", "Graph-RAG", "MongoDb"],
+        tech: ["React", "Graph-RAG", "MongoDB"],
         featured: true,
     },
 ];

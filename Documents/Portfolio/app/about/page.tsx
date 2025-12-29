@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button";
 
 const skills = [
     "Java", "React", "Python", "C++", "Next.js", "Node.js",
-    "Git", "TypeScript", "Spring", "MongoDb", "Arduino", "Rust", "RaspberryPi", "PCB Design",
+    "Git", "TypeScript", "Spring", "MongoDb", "Arduino", "Rust", "RaspberryPi", "PCB Design", "Breadboarding", "Soldering", "AutoDesk Fusion", "Onshape",
 ];
 
 const experience = [
@@ -21,6 +21,12 @@ const experience = [
         company: "lkey studios",
         date: "Aug 2023 - July 2024",
         description: "Developed full-stack features for the main product dashboard using React"
+    },
+    {
+        role: "Programming Captain",
+        company: "AV Engineers Robotics",
+        date: "Aug 2022 - May 2025",
+        description: "Qualified to states by designing, building, and programming three unique competition robots featuring pneumatics, catapults, and custom drivetrains"
     }
 ];
 
@@ -40,9 +46,9 @@ export default function AboutPage() {
                         <div className="relative w-48 h-48 flex-shrink-0">
                             <div className="w-full h-full rounded-full overflow-hidden border-4 border-white/10">
                                 <img
-                                    src="/images/pfp.png"
+                                    src="/images/photos-me/pfp.png"
                                     alt="Akhil Bejjanki"
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover object-top"
                                 />
                             </div>
                         </div>
@@ -50,15 +56,12 @@ export default function AboutPage() {
                         <div className="space-y-4 text-center md:text-left">
                             <h1 className="text-4xl font-bold text-white">About Me</h1>
                             <p className="text-gray-300 text-lg leading-relaxed">
-                                Hello! I&apos;m <span className="text-blue-400 font-semibold">Akhil Bejjanki</span>, a Computer Engineering major at
-                                <span className="text-yellow-400 font-semibold"> Georgia Tech</span>.
-                                I.
+                                Hello! I&apos;m <span className="text-blue-400 font-semibold">Akhil Bejjanki</span>, a driven Computer Engineering student at
+                                <span className="text-yellow-400 font-semibold"> Georgia Institute of Technology</span>.
+                                Through projects, internships, and academic courswork, I have developed a strong foundation in software development and hardware design. I hope to continue developing efficient, reliable systems through a summer 2026 internship in software engineering or embedded hardware development.
                             </p>
                             <div className="flex gap-4 justify-center md:justify-start">
-                                <Button href="/contact">
-                                    <Mail className="mr-2" size={18} /> Contact Me
-                                </Button>
-                                <Button href="/images/Akhil Bejjanki-Resume.pdf" variant="outline">
+                                <Button href="/images/Akhil Bejjanki-Resume.pdf">
                                     <Download className="mr-2" size={18} /> Resume
                                 </Button>
                             </div>

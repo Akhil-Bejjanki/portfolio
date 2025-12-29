@@ -50,7 +50,7 @@ export default function Home() {
 
             <figure className="border-l-4 border-blue-500 pl-4 py-2 bg-white/5 rounded-r-lg">
               <blockquote className="text-xl italic text-gray-300">
-                &quot;The process itself often carries more value than the final destination.&quot;
+                &quot;I have not failed. I've just found 10,000 ways that won't work.&quot; Thomas Edison
               </blockquote>
             </figure>
 
@@ -74,23 +74,32 @@ export default function Home() {
           >
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 h-[150%] -mt-20">
               {/* Column 1 - Moves Up */}
+              {/* Column 1 - Moves Up */}
+              {/* Column 1 - Moves Up */}
+              {/* Column 1 - Moves Up */}
               <motion.div
-                animate={{ y: [0, -100, 0] }}
-                transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-                className="flex flex-col gap-4"
+                animate={{ y: ["0%", "-50%"] }}
+                transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+                className="flex flex-col"
               >
                 {[
                   "/images/photos-me/grad_pic1.webp",
                   "/images/photos-me/IMG_7631.jpg",
-                  "/images/photos-me/Screen Shot 2025-05-19 at 8.22.58 PM.png",
+                  "/images/photos-me/grad_pic2.webp",
+                  "/images/photos-me/Screen Shot 2025-05-20 at 12.25.19 PM.png",
+                  // Duplicate for seamless loop
+                  "/images/photos-me/grad_pic1.webp",
+                  "/images/photos-me/IMG_7631.jpg",
                   "/images/photos-me/grad_pic2.webp",
                   "/images/photos-me/Screen Shot 2025-05-20 at 12.25.19 PM.png",
                 ].map((src, i) => (
-                  <div key={i} className="relative w-full aspect-[3/4] rounded-lg overflow-hidden">
+                  <div key={i} className="relative w-full aspect-[3/4] rounded-lg overflow-hidden flex-shrink-0 mb-4">
                     <Image
                       src={src}
                       alt="Gallery image"
                       fill
+                      priority
+                      sizes="(max-width: 768px) 50vw, 33vw"
                       className="object-cover hover:scale-110 transition-transform duration-500"
                     />
                   </div>
@@ -98,22 +107,34 @@ export default function Home() {
               </motion.div>
 
               {/* Column 2 - Moves Down */}
+              {/* Column 2 - Moves Down */}
+              {/* Column 2 - Moves Down */}
+              {/* Column 2 - Moves Down */}
               <motion.div
-                animate={{ y: [-100, 0, -100] }}
-                transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
-                className="flex flex-col gap-4"
+                animate={{ y: ["-50%", "0%"] }}
+                transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+                className="flex flex-col"
               >
                 {[
                   "/images/photos-me/IMG_3587.jpeg",
+                  "/images/photos-me/pfp.png",
+                  "/images/photos-me/Screen Shot 2025-05-26 at 1.46.59 PM.png",
+                  "/images/photos-me/grad_pic4.webp",
+                  "/images/photos-me/giants_game.webp",
+                  // Duplicate for seamless loop
+                  "/images/photos-me/IMG_3587.jpeg",
+                  "/images/photos-me/pfp.png",
                   "/images/photos-me/Screen Shot 2025-05-26 at 1.46.59 PM.png",
                   "/images/photos-me/grad_pic4.webp",
                   "/images/photos-me/giants_game.webp",
                 ].map((src, i) => (
-                  <div key={i} className="relative w-full aspect-[3/4] rounded-lg overflow-hidden">
+                  <div key={i} className="relative w-full aspect-[3/4] rounded-lg overflow-hidden flex-shrink-0 mb-4">
                     <Image
                       src={src}
                       alt="Gallery image"
                       fill
+                      priority
+                      sizes="(max-width: 768px) 50vw, 33vw"
                       className="object-cover hover:scale-110 transition-transform duration-500"
                     />
                   </div>
@@ -121,22 +142,32 @@ export default function Home() {
               </motion.div>
 
               {/* Column 3 - Moves Up (Hidden on mobile if needed, but keeping for now) */}
+              {/* Column 3 - Moves Up */}
+              {/* Column 3 - Moves Up */}
+              {/* Column 3 - Moves Up */}
               <motion.div
-                animate={{ y: [0, -100, 0] }}
-                transition={{ repeat: Infinity, duration: 22, ease: "linear" }}
-                className="flex flex-col gap-4 hidden sm:flex"
+                animate={{ y: ["0%", "-50%"] }}
+                transition={{ repeat: Infinity, duration: 28, ease: "linear" }}
+                className="flex flex-col hidden sm:flex"
               >
                 {[
                   "/images/photos-me/Screen Shot 2025-05-26 at 2.29.27 PM.png",
                   "/images/photos-me/grad_pic3.webp",
                   "/images/photos-me/IMG_7633.jpg",
                   "/images/photos-me/Screen Shot 2025-05-26 at 1.14.45 PM.png",
+                  // Duplicate for seamless loop
+                  "/images/photos-me/Screen Shot 2025-05-26 at 2.29.27 PM.png",
+                  "/images/photos-me/grad_pic3.webp",
+                  "/images/photos-me/IMG_7633.jpg",
+                  "/images/photos-me/Screen Shot 2025-05-26 at 1.14.45 PM.png",
                 ].map((src, i) => (
-                  <div key={i} className="relative w-full aspect-[3/4] rounded-lg overflow-hidden">
+                  <div key={i} className="relative w-full aspect-[3/4] rounded-lg overflow-hidden flex-shrink-0 mb-4">
                     <Image
                       src={src}
                       alt="Gallery image"
                       fill
+                      priority
+                      sizes="33vw"
                       className="object-cover hover:scale-110 transition-transform duration-500"
                     />
                   </div>
@@ -154,40 +185,38 @@ export default function Home() {
       {/* Featured Projects */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/50">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Featured Projects
-            </h2>
-            <p className="text-gray-400 max-w-2xl">
-              A selection of my best work in software engineering and video production.
-            </p>
-          </motion.div>
+          <div className="flex justify-between items-end mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Featured Projects
+              </h2>
+              <p className="text-gray-400 max-w-2xl">
+                A selection of my best work in software engineering and video production.
+              </p>
+            </motion.div>
+            <Link
+              href="/projects"
+              className="hidden sm:flex items-center gap-2 text-white hover:text-blue-400 transition-colors mb-2"
+            >
+              View All Projects <ArrowRight size={20} />
+            </Link>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
-            {/* See More Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
-              className="bg-[#0f0f0f] border border-white/10 rounded-2xl flex flex-col items-center justify-center text-center p-8 group hover:border-blue-500/50 hover:shadow-lg transition-colors cursor-pointer"
-            >
-              <Link href="/projects" className="w-full h-full flex flex-col items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4 group-hover:bg-blue-500/20 transition-colors">
-                  <ArrowRight className="text-white group-hover:text-blue-400" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">View All Projects</h3>
-                <p className="text-gray-400 text-sm">Explore my full portfolio</p>
-              </Link>
-            </motion.div>
+          </div>
+
+          {/* Mobile View All Button */}
+          <div className="mt-8 sm:hidden flex justify-center">
+            <Button href="/projects" variant="outline" className="w-full">
+              View All Projects <ArrowRight className="ml-2" />
+            </Button>
           </div>
         </div>
       </section>
