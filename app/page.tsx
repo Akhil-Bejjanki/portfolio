@@ -50,7 +50,7 @@ export default function Home() {
 
             <figure className="border-l-4 border-blue-500 pl-4 py-2 bg-white/5 rounded-r-lg">
               <blockquote className="text-xl italic text-gray-300">
-                &quot;I have not failed. I've just found 10,000 ways that won't work.&quot; Thomas Edison
+                &quot;I have not failed. I&apos;ve just found 10,000 ways that won&apos;t work.&quot; Thomas Edison
               </blockquote>
             </figure>
 

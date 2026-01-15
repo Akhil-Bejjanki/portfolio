@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, Mail } from "lucide-react";
+import { Download } from "lucide-react";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 const skills = [
@@ -45,11 +46,14 @@ export default function AboutPage() {
                         {/* Profile Image */}
                         <div className="relative w-48 h-48 flex-shrink-0">
                             <div className="w-full h-full rounded-full overflow-hidden border-4 border-white/10">
-                                <img
-                                    src="/images/photos-me/pfp.png"
-                                    alt="Akhil Bejjanki"
-                                    className="w-full h-full object-cover object-top"
-                                />
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src="/images/photos-me/pfp.png"
+                                        alt="Akhil Bejjanki"
+                                        fill
+                                        className="object-cover object-top"
+                                    />
+                                </div>
                             </div>
                         </div>
 
