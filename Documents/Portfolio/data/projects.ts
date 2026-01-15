@@ -6,10 +6,10 @@ export const projects: Project[] = [
         title: "Material Sorter",
         description: "Autonomous material sorter using VEX API",
         category: "Engineering",
-        image: "/placeholder-drone.jpg", // Replace with real image
-        tech: ["C++", "3D Modeling", "Live Demo"],
-        liveUrl: "https://example.com",
-        codeUrl: "https://github.com/example/drone",
+        image: "/images/projects/marblewebsite.png", // Replace with real image
+        tech: ["C++", "3D Modeling", "Engineering Design"],
+        liveUrl: "https://www.youtube.com/watch?v=-ida7KRZlcA",
+        reportUrl: "/images/projects/Akhil Bejjanki, Ryan Vir, Janav Rakesh, Luke Chen - 3.3.1 Project Report.pdf",
         featured: true,
     },
     {
@@ -21,6 +21,7 @@ export const projects: Project[] = [
         tech: ["Adobe Premiere"],
         liveUrl: "https://youtube.com",
         featured: false,
+        comingSoon: true,
     },
     {
         id: "3",
@@ -31,6 +32,7 @@ export const projects: Project[] = [
         tech: ["RaspberryPi", "Ultrasonic Sensor"],
         codeUrl: "https://github.com/example/portfolio",
         featured: true,
+        comingSoon: true,
     },
     {
         id: "2",
@@ -40,5 +42,6 @@ export const projects: Project[] = [
         image: "/placeholder-iot.jpg", // Replace with real image
         tech: ["React", "Graph-RAG", "MongoDB"],
         featured: true,
+        comingSoon: true,
     },
 ];

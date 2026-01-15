@@ -23,8 +23,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         const combinedClassName = cn(baseStyles, variants[variant], className);
 
         if (href) {
-            // Use Link for internal routes, a for external
-            const isExternal = href.startsWith("http");
+            // Use Link for internal routes, a for external or files
+            const isExternal = href.startsWith("http") || /\.(pdf|mp4|mov|webm)$/i.test(href);
             if (isExternal) {
                 return (
                     <a

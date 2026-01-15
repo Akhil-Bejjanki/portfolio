@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Project } from "@/types";
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, FileText, Clock } from "lucide-react";
 import Button from "./ui/Button";
 
 interface ProjectCardProps {
@@ -11,6 +11,17 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+    const handleCardClick = () => {
+        if (project.comingSoon) {
+            window.location.href = '/coming-soon';
+            return;
+        }
+
+        if (project.reportUrl) {
+            window.open(project.reportUrl, '_blank');
+        }
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -18,7 +29,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             viewport={{ once: true }}
             whileHover={{ y: -5 }}
             transition={{ duration: 0.3 }}
-            className="group relative bg-[#0f0f0f] border border-white/10 rounded-2xl overflow-hidden hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col h-full"
+            onClick={handleCardClick}
+            className={`group relative bg-[#0f0f0f] border border-white/10 rounded-2xl overflow-hidden hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col h-full ${project.reportUrl ? "cursor-pointer" : ""
+                }`}
         >
             <div className="relative h-48 w-full overflow-hidden">
                 {/* Gradient Overlay */}
@@ -60,23 +73,52 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
                 {/* Links */}
                 <div className="flex items-center gap-3 mt-4 pt-4 border-t border-white/10">
-                    {project.liveUrl && (
-                        <Button
-                            href={project.liveUrl}
-                            variant="primary"
-                            className="flex-1 text-sm py-2 px-4 shadow-none"
-                        >
-                            Live Demo <ExternalLink size={14} className="ml-2" />
-                        </Button>
-                    )}
-                    {project.codeUrl && (
-                        <Button
-                            href={project.codeUrl}
-                            variant="outline"
-                            className="flex-1 text-sm py-2 px-4"
-                        >
-                            Code <Github size={14} className="ml-2" />
-                        </Button>
+                    {project.comingSoon ? (
+                        <div className="flex-1">
+                            <Button
+                                href="/coming-soon"
+                                variant="outline"
+                                className="w-full text-sm py-2 px-4"
+                            >
+                                Coming Soon <Clock size={14} className="ml-2" />
+                            </Button>
+                        </div>
+                    ) : (
+                        <>
+                            {project.liveUrl && (
+                                <div onClick={(e) => e.stopPropagation()} className="flex-1">
+                                    <Button
+                                        href={project.liveUrl}
+                                        variant="primary"
+                                        className="w-full text-sm py-2 px-4 shadow-none"
+                                    >
+                                        Live Demo <ExternalLink size={14} className="ml-2" />
+                                    </Button>
+                                </div>
+                            )}
+                            {project.codeUrl && (
+                                <div onClick={(e) => e.stopPropagation()} className="flex-1">
+                                    <Button
+                                        href={project.codeUrl}
+                                        variant="outline"
+                                        className="w-full text-sm py-2 px-4"
+                                    >
+                                        Code <Github size={14} className="ml-2" />
+                                    </Button>
+                                </div>
+                            )}
+                            {project.reportUrl && (
+                                <div onClick={(e) => e.stopPropagation()} className="flex-1">
+                                    <Button
+                                        href={project.reportUrl}
+                                        variant="outline"
+                                        className="w-full text-sm py-2 px-4"
+                                    >
+                                        Report <FileText size={14} className="ml-2" />
+                                    </Button>
+                                </div>
+                            )}
+                        </>
                     )}
                 </div>
             </div>

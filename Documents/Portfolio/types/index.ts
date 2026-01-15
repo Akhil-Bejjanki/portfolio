@@ -7,5 +7,7 @@ export interface Project {
   tech: string[];
   liveUrl?: string;
   codeUrl?: string;
+  reportUrl?: string;
   featured: boolean;
+  comingSoon?: boolean;
 }
