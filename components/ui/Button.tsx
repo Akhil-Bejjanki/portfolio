@@ -5,10 +5,11 @@ import { cn } from "@/lib/utils";
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     href?: string;
     variant?: "primary" | "outline" | "ghost";
+    download?: string;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, href, variant = "primary", ...props }, ref) => {
+    ({ className, href, variant = "primary", download, ...props }, ref) => {
         const baseStyles =
             "inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none";
 
@@ -32,6 +33,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                         className={combinedClassName}
                         target="_blank"
                         rel="noopener noreferrer"
+                        download={download}
                     >
                         {props.children}
                     </a>

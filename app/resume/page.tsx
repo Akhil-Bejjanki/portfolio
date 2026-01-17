@@ -9,7 +9,11 @@ export default function ResumePage() {
             <div className="max-w-4xl w-full space-y-8">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                     <h1 className="text-3xl font-bold text-white">My Resume</h1>
-                    <Button href="/images/Akhil Bejjanki-Resume.pdf" variant="primary">
+                    <Button
+                        href="/images/Akhil Bejjanki-Resume.pdf"
+                        variant="primary"
+                        download="Akhil Bejjanki - Resume.pdf"
+                    >
                         Download PDF <Download className="ml-2" size={18} />
                     </Button>
                 </div>
@@ -25,7 +29,11 @@ export default function ResumePage() {
                             <p className="text-gray-400">
                                 It appears you don&apos;t have a PDF plugin for this browser.
                             </p>
-                            <Button href="/images/Akhil Bejjanki-Resume.pdf" variant="outline">
+                            <Button
+                                href="/images/Akhil Bejjanki-Resume.pdf"
+                                variant="outline"
+                                download="Akhil Bejjanki - Resume.pdf"
+                            >
                                 Click here to download the PDF
                             </Button>
                         </div>
