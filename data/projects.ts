@@ -28,7 +28,7 @@ export const projects: Project[] = [
         title: "RaspberryPi Motion Detector Robot",
         description: "Robot traverses surrounding area",
         category: "Engineering",
-        image: "/placeholder-portfolio.jpg", // Replace with real image
+        image: "/images/projects/RaspberryPiPlaceholder.png", // Replace with real image
         tech: ["RaspberryPi", "Ultrasonic Sensor"],
         codeUrl: "https://github.com/example/portfolio",
         featured: true,
@@ -39,7 +39,7 @@ export const projects: Project[] = [
         title: "Smart Path AI",
         description: "AI learning tool",
         category: "Engineering",
-        image: "/placeholder-iot.jpg", // Replace with real image
+        image: "/images/projects/SmartPathPicture.png", // Replace with real image
         tech: ["React", "Graph-RAG", "MongoDB"],
         featured: true,
         comingSoon: true,

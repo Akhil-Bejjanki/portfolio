@@ -65,7 +65,7 @@ export default function AboutPage() {
                                 Through projects, internships, and academic courswork, I have developed a strong foundation in software development and hardware design. I hope to continue developing efficient, reliable systems through a summer 2026 internship in software engineering or embedded hardware development.
                             </p>
                             <div className="flex gap-4 justify-center md:justify-start">
-                                <Button href="/images/Akhil Bejjanki-Resume.pdf">
+                                <Button href="/images/AkhilBejjanki-Resume.pdf">
                                     <Download className="mr-2" size={18} /> Resume
                                 </Button>
                             </div>
