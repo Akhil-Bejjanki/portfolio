@@ -5,7 +5,7 @@ export const projects: Project[] = [
         id: "1",
         title: "Material Sorter",
         description: "Autonomous material sorter using VEX API",
-        category: "Engineering",
+        category: "Embedded Hardware",
         image: "/images/projects/marblewebsite.png", // Replace with real image
         tech: ["C++", "3D Modeling", "Engineering Design"],
         liveUrl: "https://www.youtube.com/watch?v=-ida7KRZlcA",
@@ -13,21 +13,10 @@ export const projects: Project[] = [
         featured: true,
     },
     {
-        id: "4",
-        title: "Music Video",
-        description: "Music Video",
-        category: "Video Production",
-        image: "/placeholder-video.jpg", // Replace with real image
-        tech: ["Adobe Premiere"],
-        liveUrl: "https://youtube.com",
-        featured: false,
-        comingSoon: true,
-    },
-    {
         id: "3",
         title: "RaspberryPi Motion Detector Robot",
         description: "Robot traverses surrounding area",
-        category: "Engineering",
+        category: "Embedded Hardware",
         image: "/images/projects/RaspberryPiPlaceholder.png", // Replace with real image
         tech: ["RaspberryPi", "Ultrasonic Sensor"],
         codeUrl: "https://github.com/example/portfolio",
@@ -38,7 +27,7 @@ export const projects: Project[] = [
         id: "2",
         title: "Smart Path AI",
         description: "AI learning tool",
-        category: "Engineering",
+        category: "Software + AI",
         image: "/images/projects/SmartPathPicture.png", // Replace with real image
         tech: ["React", "Graph-RAG", "MongoDB"],
         featured: true,

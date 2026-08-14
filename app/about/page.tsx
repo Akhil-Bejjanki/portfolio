@@ -6,13 +6,25 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 const skills = [
-    "Java", "React", "Python", "C++", "Next.js", "Node.js",
+    "Java", "React", "Python", "C++", "Next.js", "Node.js", "Docker", "Altium",
     "Git", "TypeScript", "Spring", "MongoDb", "Arduino", "Rust", "RaspberryPi", "PCB Design", "Breadboarding", "Soldering", "AutoDesk Fusion", "Onshape",
 ];
 
 const experience = [
     {
-        role: "Web-Dev Intern",
+        role: "Undergraduate Researcher",
+        company: "Mechatronics and Motivation",
+        date: "January 2025",
+        description: "Built haptic and EMG device to reduce stress levels with K-12 students to optimize learning"
+    },
+    {
+        role: "AI + Image Proccessing Lead",
+        company: "BDBI - SmartPath AI",
+        date: "August 2025",
+        description: "Architected GraphRAG pipeline using LangChain, OpenAI, and Neo4j to transform PDFs  into interactive knowledge graphs and dynamic quizzes that adjust question difficulty and concept sequencing to optimize learning"
+    },
+    {
+        role: "Software Development Intern",
         company: "Hydra",
         date: "Summer 2025",
         description: "Designed and implemented website features connecting open-source contributors with companies"
@@ -21,7 +33,7 @@ const experience = [
         role: "Software Engineering Intern",
         company: "lkey studios",
         date: "Aug 2023 - July 2024",
-        description: "Developed full-stack features for the main product dashboard using React"
+        description: "Implemented multilingual functionality and built React-based UI components for an online shop, enhancing accessibility and supporting a more scalable front-end architecture"
     },
     {
         role: "Programming Captain",
@@ -62,7 +74,7 @@ export default function AboutPage() {
                             <p className="text-gray-300 text-lg leading-relaxed">
                                 Hello! I&apos;m <span className="text-blue-400 font-semibold">Akhil Bejjanki</span>, a driven Computer Engineering student at
                                 <span className="text-yellow-400 font-semibold"> Georgia Institute of Technology</span>.
-                                Through projects, internships, and academic courswork, I have developed a strong foundation in software development and hardware design. I hope to continue developing efficient, reliable systems through a summer 2026 internship in software engineering or embedded hardware development.
+                                Through projects, internships, and academic courswork, I have developed a strong foundation in software development and hardware design. I hope to continue developing efficient, reliable systems through a summer 2027 internship in software engineering or embedded hardware development.
                             </p>
                             <div className="flex gap-4 justify-center md:justify-start">
                                 <Button href="/images/AkhilBejjanki-Resume.pdf">

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, Mail } from "lucide-react";
+import { Download } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 const skills = [
@@ -11,22 +11,34 @@ const skills = [
 
 const experience = [
     {
+        role: "Robotics Engineer",
+        company: "RoboCup",
+        date: "August 2025 – Present",
+        description: "Developed firmware in Rust for autonomous robots, implementing RTIC-based cooling systems, I²C hardware communication, and multi-agent AI frameworks for autonomous decision-making."
+    },
+    {
+        role: "Undergraduate Researcher",
+        company: "Mechatronics & Motivation @ Flavin Neuromachines Lab",
+        date: "August 2025 – Present",
+        description: "Designed flexible PCBs in Altium and developed BLE IoT sensor firmware for wearable haptic rings and EMG devices, enabling real-time muscle signal processing and feedback."
+    },
+    {
         role: "Web-Dev Intern",
         company: "Hydra",
-        date: "Summer 2025",
-        description: "Designed and implemented website features connecting open-source contributors with companies"
+        date: "May 2025 – August 2025",
+        description: "Designed and implemented website features connecting open-source contributors with companies while incorporating modern layout design and analyzing AI-driven business models."
     },
     {
         role: "Software Engineering Intern",
         company: "lkey studios",
-        date: "Aug 2023 - July 2024",
-        description: "Developed full-stack features for the main product dashboard using React"
+        date: "Aug 2023 – July 2024",
+        description: "Built and launched responsive full-stack web features and online shop components using React, including multilingual support for over 50 monthly active users."
     },
     {
         role: "Programming Captain",
-        company: "AV Engineers Robotics",
-        date: "Aug 2022 - May 2025",
-        description: "Qualified to states by designing, building, and programming three unique competition robots featuring pneumatics, catapults, and custom drivetrains"
+        company: "AVHS Engineers",
+        date: "Aug 2022 – May 2025",
+        description: "Led robotics team to state finals by programming C++ autonomous and driver-control systems for competition robots with pneumatics and catapults while mentoring new members."
     }
 ];
 
@@ -58,7 +70,7 @@ export default function AboutPage() {
                             <p className="text-gray-300 text-lg leading-relaxed">
                                 Hello! I&apos;m <span className="text-blue-400 font-semibold">Akhil Bejjanki</span>, a driven Computer Engineering student at
                                 <span className="text-yellow-400 font-semibold"> Georgia Institute of Technology</span>.
-                                Through projects, internships, and academic courswork, I have developed a strong foundation in software development and hardware design. I hope to continue developing efficient, reliable systems through a summer 2026 internship in software engineering or embedded hardware development.
+                                Through projects, internships, and academic coursework, I have developed a strong foundation in software development and hardware design. I hope to continue developing efficient, reliable systems through a summer 2027 internship in software engineering or embedded hardware development.
                             </p>
                             <div className="flex gap-4 justify-center md:justify-start">
                                 <Button href="/images/Akhil Bejjanki-Resume.pdf">

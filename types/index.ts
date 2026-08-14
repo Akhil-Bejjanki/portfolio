@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  category: "Engineering" | "Video Production";
+  category: "Embedded Hardware" | "Software + AI";
   image: string;
   tech: string[];
   liveUrl?: string;

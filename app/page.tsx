@@ -195,7 +195,7 @@ export default function Home() {
                 Featured Projects
               </h2>
               <p className="text-gray-400 max-w-2xl">
-                A selection of my best work in software engineering and video production.
+                A selection of my best work in software engineering, AI, and embedded hardware.
               </p>
             </motion.div>
             <Link

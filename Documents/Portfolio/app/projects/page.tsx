@@ -6,7 +6,7 @@ import ProjectCard from "@/components/ProjectCard";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const categories = ["All", "Engineering", "Video Production"];
+const categories = ["All", "Embedded Hardware", "Software + AI"];
 
 export default function ProjectsPage() {
     const [projects, setProjects] = useState<Project[]>([]);
