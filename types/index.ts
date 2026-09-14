@@ -6,8 +6,12 @@ export interface Project {
   image: string;
   tech: string[];
   liveUrl?: string;
+  liveLabel?: string;
   codeUrl?: string;
+  demoUrl?: string;
   reportUrl?: string;
   featured: boolean;
   comingSoon?: boolean;
+  longDescription?: string[];
+  processDescription?: string[];
 }

@@ -16,8 +16,7 @@ export async function GET(request: Request) {
         filteredProjects = filteredProjects.filter((p) => p.category === category);
     }
 
-    // Sort by ID (numerical)
-    filteredProjects.sort((a, b) => Number(a.id) - Number(b.id));
+    // Return projects in exact defined array order
 
     return NextResponse.json(filteredProjects);
 }

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Project } from "@/types";
 import { motion } from "framer-motion";
-import { ExternalLink, Github, FileText, Clock } from "lucide-react";
+import { ExternalLink, Github, FileText, Clock, Video, Info } from "lucide-react";
 import Button from "./ui/Button";
 
 interface ProjectCardProps {
@@ -14,6 +14,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     const handleCardClick = () => {
         if (project.comingSoon) {
             window.location.href = '/coming-soon';
+            return;
+        }
+
+        if (project.longDescription) {
+            window.location.href = `/projects/${project.id}`;
             return;
         }
 
@@ -30,14 +35,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             whileHover={{ y: -5 }}
             transition={{ duration: 0.3 }}
             onClick={handleCardClick}
-            className={`group relative bg-[#0f0f0f] border border-white/10 rounded-2xl overflow-hidden hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col h-full ${project.reportUrl ? "cursor-pointer" : ""
-                }`}
+            className={`group relative bg-[#0f0f0f] border border-white/10 rounded-2xl overflow-hidden hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col h-full ${
+                project.reportUrl || project.longDescription || project.comingSoon ? "cursor-pointer" : ""
+            }`}
         >
             <div className="relative h-48 w-full overflow-hidden">
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] to-transparent z-10 opacity-60" />
 
-                {/* Image - using unoptimized for external placeholders if needed, but Next.js image better */}
+                {/* Image */}
                 <Image
                     src={project.image}
                     alt={project.title}
@@ -72,9 +78,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 </div>
 
                 {/* Links */}
-                <div className="flex items-center gap-3 mt-4 pt-4 border-t border-white/10">
+                <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-white/10">
                     {project.comingSoon ? (
-                        <div className="flex-1">
+                        <div className="w-full">
                             <Button
                                 href="/coming-soon"
                                 variant="outline"
@@ -85,36 +91,72 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                         </div>
                     ) : (
                         <>
-                            {project.liveUrl && (
-                                <div onClick={(e) => e.stopPropagation()} className="flex-1">
+                            <div className="flex flex-wrap items-center gap-2">
+                                {project.longDescription && (
+                                    <div onClick={(e) => e.stopPropagation()} className="flex-1 min-w-[80px]">
+                                        <Button
+                                            href={`/projects/${project.id}`}
+                                            variant="primary"
+                                            className="w-full text-xs sm:text-sm py-2 px-3 shadow-none"
+                                        >
+                                            Details <Info size={14} className="ml-1" />
+                                        </Button>
+                                    </div>
+                                )}
+                                {project.codeUrl && (
+                                    <div onClick={(e) => e.stopPropagation()} className="flex-1 min-w-[80px]">
+                                        <Button
+                                            href={project.codeUrl}
+                                            variant="outline"
+                                            className="w-full text-xs sm:text-sm py-2 px-3"
+                                        >
+                                            Code <Github size={14} className="ml-1" />
+                                        </Button>
+                                    </div>
+                                )}
+                                {project.demoUrl && (
+                                    <div onClick={(e) => e.stopPropagation()} className="flex-1 min-w-[80px]">
+                                        <Button
+                                            href={project.demoUrl}
+                                            variant="outline"
+                                            className="w-full text-xs sm:text-sm py-2 px-3"
+                                        >
+                                            Demo <Video size={14} className="ml-1" />
+                                        </Button>
+                                    </div>
+                                )}
+                                {project.liveUrl && !project.liveLabel && (
+                                    <div onClick={(e) => e.stopPropagation()} className="flex-1 min-w-[80px]">
+                                        <Button
+                                            href={project.liveUrl}
+                                            variant="primary"
+                                            className="w-full text-xs sm:text-sm py-2 px-3 shadow-none"
+                                        >
+                                            Live Demo <ExternalLink size={14} className="ml-1" />
+                                        </Button>
+                                    </div>
+                                )}
+                                {project.reportUrl && (
+                                    <div onClick={(e) => e.stopPropagation()} className="flex-1 min-w-[80px]">
+                                        <Button
+                                            href={project.reportUrl}
+                                            variant="outline"
+                                            className="w-full text-xs sm:text-sm py-2 px-3"
+                                        >
+                                            Report <FileText size={14} className="ml-1" />
+                                        </Button>
+                                    </div>
+                                )}
+                            </div>
+
+                            {project.liveUrl && project.liveLabel && (
+                                <div onClick={(e) => e.stopPropagation()} className="w-full mt-1">
                                     <Button
                                         href={project.liveUrl}
-                                        variant="primary"
-                                        className="w-full text-sm py-2 px-4 shadow-none"
-                                    >
-                                        Live Demo <ExternalLink size={14} className="ml-2" />
-                                    </Button>
-                                </div>
-                            )}
-                            {project.codeUrl && (
-                                <div onClick={(e) => e.stopPropagation()} className="flex-1">
-                                    <Button
-                                        href={project.codeUrl}
                                         variant="outline"
-                                        className="w-full text-sm py-2 px-4"
+                                        className="w-full text-xs sm:text-sm py-2 px-3"
                                     >
-                                        Code <Github size={14} className="ml-2" />
-                                    </Button>
-                                </div>
-                            )}
-                            {project.reportUrl && (
-                                <div onClick={(e) => e.stopPropagation()} className="flex-1">
-                                    <Button
-                                        href={project.reportUrl}
-                                        variant="outline"
-                                        className="w-full text-sm py-2 px-4"
-                                    >
-                                        Report <FileText size={14} className="ml-2" />
+                                        {project.liveLabel} <ExternalLink size={14} className="ml-1" />
                                     </Button>
                                 </div>
                             )}
