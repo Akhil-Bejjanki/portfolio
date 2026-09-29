@@ -9,6 +9,7 @@ export interface Project {
   liveLabel?: string;
   codeUrl?: string;
   demoUrl?: string;
+  adminDemoUrl?: string;
   reportUrl?: string;
   featured: boolean;
   comingSoon?: boolean;

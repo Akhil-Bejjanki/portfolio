@@ -34,6 +34,7 @@ export const projects: Project[] = [
         liveLabel: "Live App",
         codeUrl: "https://github.com/Akhil-Bejjanki/moviesstore/tree/main",
         demoUrl: "https://youtu.be/rFIZsqSt2Tk",
+        adminDemoUrl: "https://youtu.be/8A9XpcmkHoI",
         featured: true,
         longDescription: [
             "I designed and developed GT Movies Store as a Django-based movie shopping web application that gives users a simple way to browse a catalog of films, view details, add movies to a cart, and complete a purchase. The app is meant to make movie selection and shopping feel straightforward for a user who wants to look at available titles, compare them, and decide what to watch or buy. The main entry point is the home page, which leads into the rest of the site through navigation links for About, Movies, Cart, login, and signup. From there, users can move between pages using Django routes and template links rather than a separate JavaScript app, which keeps the flow easy to understand and consistent across the project.",

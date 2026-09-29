@@ -121,7 +121,18 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                             variant="outline"
                                             className="w-full text-xs sm:text-sm py-2 px-3"
                                         >
-                                            Demo <Video size={14} className="ml-1" />
+                                            {project.adminDemoUrl ? "User Demo" : "Demo"} <Video size={14} className="ml-1" />
+                                        </Button>
+                                    </div>
+                                )}
+                                {project.adminDemoUrl && (
+                                    <div onClick={(e) => e.stopPropagation()} className="flex-1 min-w-[80px]">
+                                        <Button
+                                            href={project.adminDemoUrl}
+                                            variant="outline"
+                                            className="w-full text-xs sm:text-sm py-2 px-3"
+                                        >
+                                            Admin Demo <Video size={14} className="ml-1" />
                                         </Button>
                                     </div>
                                 )}

@@ -99,7 +99,12 @@ export default function ProjectDetailPage({ params }: PageProps) {
                     )}
                     {project.demoUrl && (
                         <Button href={project.demoUrl} variant="outline" className="text-base py-3 px-6">
-                            Demo Video <Video size={18} className="ml-2" />
+                            {project.adminDemoUrl ? "User Demo Video" : "Demo Video"} <Video size={18} className="ml-2" />
+                        </Button>
+                    )}
+                    {project.adminDemoUrl && (
+                        <Button href={project.adminDemoUrl} variant="outline" className="text-base py-3 px-6">
+                            Admin Demo Video <Video size={18} className="ml-2" />
                         </Button>
                     )}
                 </div>
@@ -107,25 +112,67 @@ export default function ProjectDetailPage({ params }: PageProps) {
 
             {/* Project Video / Image Showcase */}
             {(() => {
-                const youtubeMatch = project.demoUrl?.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/);
-                const embedUrl = (youtubeMatch && youtubeMatch[2].length === 11) ? `https://www.youtube.com/embed/${youtubeMatch[2]}` : null;
+                const getEmbedUrl = (url?: string) => {
+                    if (!url) return null;
+                    const match = url.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/);
+                    return (match && match[2].length === 11) ? `https://www.youtube.com/embed/${match[2]}` : null;
+                };
 
-                if (embedUrl) {
+                const userEmbedUrl = getEmbedUrl(project.demoUrl);
+                const adminEmbedUrl = getEmbedUrl(project.adminDemoUrl);
+
+                if (userEmbedUrl || adminEmbedUrl) {
+                    const videoCount = (userEmbedUrl ? 1 : 0) + (adminEmbedUrl ? 1 : 0);
+
                     return (
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                            className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 mb-12 shadow-2xl bg-black/40"
-                        >
-                            <iframe
-                                src={embedUrl}
-                                title={`${project.title} Demo Video`}
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen
-                                className="w-full h-full border-0"
-                            />
-                        </motion.div>
+                        <div className={`grid grid-cols-1 ${videoCount > 1 ? 'lg:grid-cols-2' : ''} gap-6 mb-12`}>
+                            {userEmbedUrl && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.1 }}
+                                    className="flex flex-col gap-3"
+                                >
+                                    {videoCount > 1 && (
+                                        <h3 className="text-white text-lg font-semibold flex items-center gap-2">
+                                            <Video size={18} className="text-blue-400" /> User Demo Video
+                                        </h3>
+                                    )}
+                                    <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black/40">
+                                        <iframe
+                                            src={userEmbedUrl}
+                                            title={`${project.title} User Demo Video`}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowFullScreen
+                                            className="w-full h-full border-0"
+                                        />
+                                    </div>
+                                </motion.div>
+                            )}
+                            {adminEmbedUrl && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                    className="flex flex-col gap-3"
+                                >
+                                    {videoCount > 1 && (
+                                        <h3 className="text-white text-lg font-semibold flex items-center gap-2">
+                                            <Video size={18} className="text-purple-400" /> Admin Demo Video
+                                        </h3>
+                                    )}
+                                    <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black/40">
+                                        <iframe
+                                            src={adminEmbedUrl}
+                                            title={`${project.title} Admin Demo Video`}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowFullScreen
+                                            className="w-full h-full border-0"
+                                        />
+                                    </div>
+                                </motion.div>
+                            )}
+                        </div>
                     );
                 }
 
